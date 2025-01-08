@@ -228,14 +228,14 @@ def obtener_recomendaciones(titulo, df, cosine_sim):
         return []
 
 # Crear el modelo de recomendación
-vectorizer, tfidf_matrix, cosine_sim = crear_modelo_recomendacion(df_reduc)
+vectorizer, tfidf_matrix, cosine_sim = crear_modelo_recomendacion(df)
 
 # Función de recomendación
 @app.get("/recomendacion/{titulo}")
 def recomendacion(titulo: str):
     try:
         # Obtener recomendaciones
-        peliculas_similares = obtener_recomendaciones(titulo, df_reduc, cosine_sim)
+        peliculas_similares = obtener_recomendaciones(titulo, df, cosine_sim)
 
         if peliculas_similares:
             return {
