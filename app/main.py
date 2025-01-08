@@ -13,7 +13,7 @@ df = pd.read_csv("movies_dataset_clean.csv")
 
 
 # Seleccionar las primeras 1000 filas
-df_reduc = df.head(100)
+df = df.head(100)
 
 
 #Endpoint Cant Filmaciones/mes
