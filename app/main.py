@@ -11,6 +11,7 @@ def home():
 # Cargar dataset limpio
 df = pd.read_csv("movies_dataset_clean.csv")
 
+
 # Seleccionar las primeras 1000 filas
 df_reduc = df.head(1000)
 
