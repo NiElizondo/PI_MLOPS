@@ -19,6 +19,7 @@ df_reduc = df.head(1000)
 #Endpoint Cant Filmaciones/mes
 @app.get("/cantidad_filmaciones_mes/{mes}")
 def cantidad_filmaciones_mes(mes: str):
+    print(f"Endpoint '/cantidad_filmaciones_mes' llamado con mes: {mes}")
     try:
         # Diccionario para traducir los meses del año al inglés
         meses = {
