@@ -1,6 +1,4 @@
 import pandas as pd
-import sys
-sys.path.append('C:/Users/nicol/Desktop/proyecto')
 from fastapi import FastAPI
 from modelo import crear_modelo_recomendacion, obtener_recomendaciones
 
@@ -10,13 +8,26 @@ app = FastAPI()
 meses = {
     "enero": "January",
     "febrero": "February",
-    # ...
+    "marzo": "March",
+    "abril": "April",
+    "mayo": "May",
+    "junio": "June",
+    "julio": "July",
+    "agosto": "August",
+    "septiembre": "September",
+    "octubre": "October",
+    "noviembre": "November",
+    "diciembre": "December"
 }
 
 dias_semana = {
     "lunes": "Monday",
     "martes": "Tuesday",
-    # ...
+    "miercoles": "Wednesday",
+    "jueves": "Thursday",
+    "viernes": "Friday",
+    "sabado": "Saturday",
+    "domingo": "Sunday"
 }
 
 # Cargar dataset limpio
