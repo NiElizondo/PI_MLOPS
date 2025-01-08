@@ -11,6 +11,9 @@ def home():
 # Cargar dataset limpio
 df = pd.read_csv("movies_dataset_clean.csv")
 
+# Seleccionar las primeras 1000 filas
+df_reduc = df.head(1000)
+
 # Convertir la columna release_date a datetime
 df = pd.read_csv("movies_dataset_clean.csv", dtype={"column_name": str}, low_memory=False)
 
@@ -180,11 +183,11 @@ cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
 def recomendacion(titulo: str):
     try:
         # Verificar que el DataFrame 'df' y la matriz 'cosine_sim' estén definidos
-        if df is None or cosine_sim is None:
+        if df_reduc is None or cosine_sim is None:
             return {"error": "Los datos no están cargados correctamente"}
 
         # Buscar el índice de la película en el DataFrame
-        idx = df[df['title'].str.contains(titulo, case=False, na=False)].index
+        idx = df_reduc[df_reduc['title'].str.contains(titulo, case=False, na=False)].index
         if len(idx) == 0:
             return {"error": f"La película '{titulo}' no fue encontrada en el dataset"}
 
@@ -200,7 +203,7 @@ def recomendacion(titulo: str):
         sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)[1:6]  # Excluir la película misma
 
         # Extraer las películas similares
-        peliculas_similares = [df.iloc[i[0]]['title'] for i in sim_scores]
+        peliculas_similares = [df_reduc.iloc[i[0]]['title'] for i in sim_scores]
         return {
             "mensaje": f"Películas similares a '{titulo}':",
             "recomendaciones": peliculas_similares,
