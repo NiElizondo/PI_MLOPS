@@ -1,4 +1,6 @@
 import pandas as pd
+import sys
+sys.path.append('C:/Users/nicol/Desktop/proyecto')
 from fastapi import FastAPI
 from modelo import crear_modelo_recomendacion, obtener_recomendaciones
 
