@@ -15,9 +15,6 @@ df = pd.read_csv("movies_dataset_clean.csv")
 # Seleccionar las primeras 1000 filas
 df_reduc = df.head(1000)
 
-# Convertir la columna release_date a datetime
-df = pd.read_csv("movies_dataset_clean.csv", dtype={"column_name": str}, low_memory=False)
-
 
 #Endpoint Cant Filmaciones/mes
 @app.get("/cantidad_filmaciones_mes/{mes}")
